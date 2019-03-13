@@ -627,6 +627,20 @@ PepperMint.prototype.editTransaction = function(args) {
     return this._form('updateTransaction.xevent', form);
 };
 
+//extend pepperMint to allow for account update
+PepperMint.prototype.updateAccount = function(args) {
+    var form = {
+        accountId: args.accountId,
+        accountValue: args.accountValue,
+        types: 'ot',
+        accountType: '3',
+        accountStatus: '1',
+        associatedLoanRadio: 'No',
+        token: this.token
+    };
+    return this._form('updateAccount.xevent', form);
+};
+
 /**
  * Check which accounts are still refreshing (if any).
  *
